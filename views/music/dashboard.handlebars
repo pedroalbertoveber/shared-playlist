@@ -1,0 +1,32 @@
+<div class="title-container">
+  <h2>Minhas Músicas</h2>
+</div>
+
+<div class="dashboard-container">
+  <div class="musics-container">
+    {{#if emptyMusics}}
+    <span class="empty-list">Você ainda não possui músicas cadastradas :(</span>
+    {{else}}
+    <ul>
+    {{#each musics}}
+      <li>  
+        <div class="music-info">
+          <h4>{{this.title}}</h4>
+          <span>{{this.owner}}</span>
+        </div>
+        <div class="actions">
+          <a href="/musics/edit/{{this.id}}"><i class="bi bi-pencil"></i></a>
+          <form action="/musics/delete" method="POST">
+            <input type="hidden" value="{{this.id}}" name="id">
+            <button type="submit">
+              <i class="bi bi-trash3"></i>
+            </button>
+          </form>
+        </div>
+      </li>
+    {{/each}}
+    </ul>
+    {{/if}}
+  </div>
+  <a href="/musics/add" class="add-button">Adicionar música</a>
+</div>

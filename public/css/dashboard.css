@@ -1,0 +1,73 @@
+.dashboard-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.dashboard-container .empty-list {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.dashboard-container .add-button {
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  background-color: #04D94F;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 1em;
+  margin-top: 2em;
+}
+
+.dashboard-container .add-button:active {
+  background-color: #0CB848;
+}
+
+.dashboard-container .musics-container {
+  width: 100%;
+  margin-top: 2em;
+}
+
+.dashboard-container .musics-container ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-container .musics-container ul li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #555;
+  align-items: center;
+}
+
+.dashboard-container .musics-container .actions {
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-container .musics-container .actions form {
+  margin-left: 15px;
+}
+
+.dashboard-container .musics-container .actions form button {
+  border: none;
+}
+
+.dashboard-container .musics-container .actions form button i,
+.dashboard-container .musics-container .actions a i {
+  font-size: 1.3em;
+  color: #555;
+  transition: all .2s;
+}
+
+.dashboard-container .musics-container .actions form button i:hover,
+.dashboard-container .musics-container .actions a i:hover {
+  color: #fff;
+}

@@ -1,5 +1,4 @@
 /* external modules */
-const flash = require("express-flash");
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 
@@ -7,6 +6,39 @@ module.exports = class AuthController {
 
   static login(req, res) {
     res.render("auth/login");
+  }
+
+  static async loginPost(req, res) {
+    const { email, password } = req.body;
+     
+    /* find user */
+    const user = await User.findOne({ where: { email: email }});
+
+    if(!user) {
+      req.flash("message", "Este e-mail não está cadastrado no sistema.");
+      res.render("auth/login");
+      return;
+    }
+
+    /* check if passwords match */
+    const passwordMatch = bcrypt.compareSync(password, user.password);
+
+    if(!passwordMatch) {
+      req.flash("message", "Senha inválida. Tente novamente.");
+      res.render("auth/login");
+      return;
+    }
+
+    /* initialized session */
+
+    req.session.userid = user.id;
+
+    req.flash("message", "Autenticação realizada com sucesso");
+    req.session.save(() => {
+      res.redirect("/");
+    });
+    
+    return;
   }
 
   static register(req, res) {

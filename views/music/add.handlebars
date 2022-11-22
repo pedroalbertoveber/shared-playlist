@@ -1,0 +1,21 @@
+<div class="title-container">
+  <h2>Adicionar Música</h2>
+</div>
+<div class="form-container">
+  <form action="/musics/add" method="POST">
+    <div class="form-control">
+      <label for="title">Título</label>
+      <input type="text" name="title" placeholder="Digite o título da música" required>
+    </div>
+    <div class="form-control">
+      <label for="owner">Artista</label>
+      <input type="text" name="owner" placeholder="Digite o nome do artista" required>
+    </div>
+    <div class="form-control">
+      <label for="genre">Gênero</label>
+      <input type="text" name="genre" placeholder="Digite o gênero da música" required>
+    </div>
+    <input type="submit" value="Adicionar">
+  </form>
+  <a href="/musics/dashboard">Voltar para dashboard</a>
+</div>

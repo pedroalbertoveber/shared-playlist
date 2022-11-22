@@ -15,6 +15,7 @@ const Music = require("./models/Music");
 
 /* importing routes */
 const authRoutes = require("./routes/authRoutes");
+const musicsRoutes = require("./routes/musicsRoutes");
 
 /* importing controllers */
 const MusicController = require("./controllers/MusicController");
@@ -69,6 +70,7 @@ app.use((req, res, next) => {
 
 /* routes */
 app.use("/", authRoutes);
+app.use("/musics", musicsRoutes);
 app.get("/", MusicController.showAll);
 
 /* initilization */

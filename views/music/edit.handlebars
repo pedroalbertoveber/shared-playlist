@@ -1,0 +1,22 @@
+<div class="title-container">
+  <h2>Editar</h2>
+</div>
+<div class="form-container">
+  <form action="/musics/edit" method="POST">
+    <div class="form-control">
+      <label for="title">Título</label>
+      <input type="text" name="title" placeholder="Digite o título da música" value="{{music.title}}" required>
+    </div>
+    <div class="form-control">
+      <label for="owner">Artista</label>
+      <input type="text" name="owner" placeholder="Digite o nome do artista" value="{{music.owner}}" required>
+    </div>
+    <div class="form-control">
+      <label for="genre">Gênero</label>
+      <input type="text" name="genre" placeholder="Digite o gênero da música" value="{{music.genre}}" required>
+    </div>
+    <input type="hidden" value="{{music.id}}" name="id">
+    <input type="submit" value="Editar">
+  </form>
+  <a href="/musics/dashboard">Voltar para dashboard</a>
+</div>
