@@ -1,0 +1,5 @@
+Color List: 
+
+- Light Green: #04D94F
+- Medium Green: #0B8C38
+- Dark Green: #14592C
