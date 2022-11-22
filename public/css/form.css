@@ -1,0 +1,73 @@
+.form-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 2em 0;
+}
+
+.form-container form .form-control {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.form-container form .form-control label {
+  font-weight: bold;
+  margin-bottom: .5em;
+}
+
+.form-container form .form-control input {
+  border: none;
+  padding: 10px 20px;
+  background-color: #555;
+  border-radius: 20px;
+  font-size: 1em;
+  color: #fff;
+}
+
+.form-container form .form-control input::placeholder {
+  color: #bbb;
+}
+
+.form-container form .form-control input:focus {
+  outline: 0;
+}
+
+.form-container form input[type="submit"] {
+  width: 100%;
+  border: none;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #04D94F;
+  margin-top: 1em;
+  cursor: pointer;
+}
+
+.form-container form input[type="submit"]:active {
+  background-color: #0cb848;
+}
+
+.form-container form .redirect {
+  display: block;
+  width: 100%;
+  text-align: right;
+  margin-top: 1em;
+}
+
+.form-container form .redirect a {
+  color: #04D94F;
+}
+
+.form-container form .redirect a:hover {
+  color: #fff;
+}

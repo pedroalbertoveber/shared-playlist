@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/form.css">
   <title>Playlist Compartilhada</title>
 </head>
 <body>
@@ -18,12 +19,22 @@
     </div>
     <nav class="navbar">
       <ul>
-        <li><a href="/musics">Músicas</a></li>
-        <li><a href="/login">Entrar</a></li>
-        <li><a href="/register">Registrar</a></li>
+        <li><a href="/">Músicas</a></li>
+        {{#if session.userid}}
+          <li><a href="/musics/dashboard">Dashboard</a></li>
+          <li><a href="/logout">Sair</a></li>
+        {{else}}
+          <li><a href="/login">Entrar</a></li>
+          <li><a href="/register">Registrar</a></li>
+        {{/if}}
       </ul>
     </nav>
   </header>
+  {{#if messages.message}}
+    <div class="message-container">
+      {{messages.message}}
+    </div>
+  {{/if}}
   <main class="container">
     {{{body}}}
   </main>

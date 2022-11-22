@@ -17,6 +17,7 @@ const Music = require("./models/Music");
 const authRoutes = require("./routes/authRoutes");
 
 /* importing controllers */
+const MusicController = require("./controllers/MusicController");
 
 
 /* handlebars config */
@@ -68,6 +69,7 @@ app.use((req, res, next) => {
 
 /* routes */
 app.use("/", authRoutes);
+app.get("/", MusicController.showAll);
 
 /* initilization */
 conn.sync()
