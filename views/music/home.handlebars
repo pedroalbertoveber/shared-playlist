@@ -1,3 +1,45 @@
 <div class="title-container">
-  <h2>Todas as Músicas</h2>
+  {{#if hasSomeFullfiled}}
+    {{#if searchOwner}}
+      <h2>Artista: <strong>{{searchOwner}}</strong></h2>
+    {{else}}
+      <h2>Música: <strong>{{searchTitle}}</strong></h2>
+    {{/if}}
+  {{else}}
+    <h2>Todas as Músicas</h2>
+  {{/if}}
+</div>
+<div class="filters-container">
+  <form action="/" method="GET">
+    <label for="searchTitle">Buscar por título</label>
+    <div>
+      <input type="text" name="searchTitle" placeholder="Digite o título da música">
+      <input type="submit" value="Buscar">
+    </div>
+  </form>
+  <form action="/" method="GET">
+    <label for="searchOwner">Buscar por artista</label>
+    <div>
+      <input type="text" name="searchOwner" placeholder="Digite o nome do artista">
+      <input type="submit" value="Buscar">
+    </div>
+  </form>
+  <a href="/" class="clean-all">Limpar Filtros</a>
+</div>
+<div class="all-musics-container">
+  {{#if musicsQty}}
+      <ul>
+    {{#each musics}}
+      <li>
+        <div class="music-info">
+          <h4>{{this.title}}</h4>
+          <span>{{this.owner}}</span>
+        </div>
+        <p>Adicionado por <strong>{{this.User.name}}</strong></p>
+      </li>
+    {{/each}}
+  </ul>
+  {{else}}
+    <span class="not-found">Não foram encontradas músicas referentes a busca. Cadastre a música desejada <a href="/musics/add">aqui.</a></span>
+  {{/if}}
 </div>

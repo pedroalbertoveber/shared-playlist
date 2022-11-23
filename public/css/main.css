@@ -40,6 +40,10 @@ a {
   margin: 1em auto;
 }
 
+.title-container h2 strong{
+  color: #04D94F;
+}
+
 /* FLASH MESSAGES */
 .message-container {
   display: flex;
@@ -54,6 +58,7 @@ a {
   padding: 0 40px;
   text-align: center;
   line-height: 1.2em;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 1000px) {

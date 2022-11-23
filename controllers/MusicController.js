@@ -1,9 +1,46 @@
 const Music = require("../models/Music");
 const User = require("../models/User");
+const { Op } = require("sequelize");
 
 module.exports = class MusicController {
-  static showAll(req, res) {
-    res.render("music/home");
+  static async showAll(req, res) {
+    let searchTitle = "";
+    let searchOwner = "";
+
+    if (req.query.searchTitle) {
+      searchTitle = req.query.searchTitle;
+    }
+
+    if (req.query.searchOwner) {
+      searchOwner = req.query.searchOwner;
+    }
+
+    const musicsData = await Music.findAll({ 
+      include: User,
+      where: {
+        title: {[Op.like]: `%${searchTitle}%`},
+        owner: {[Op.like]: `%${searchOwner}%`},
+      },
+    });
+
+    const hasSomeFullfiled = searchTitle || searchOwner;
+
+    const musics = musicsData.map(result => result.get({ plain: true }));
+
+    let musicsQty = musics.length;
+
+    if (musics.length === 0) {
+      musicsQty = false;
+    }
+
+    res.render("music/home",
+    { 
+      musics, 
+      searchOwner, 
+      searchTitle,
+      hasSomeFullfiled,
+      musicsQty, 
+    });
   }
 
   static async dashboard(req, res) {
